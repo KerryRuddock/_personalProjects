@@ -1,0 +1,256 @@
+/*
+** style.css
+**
+** 1) Web Page is in vh units and set within these classes:
+**    - banner:     8vh  
+**    - main-wrap: 89vh + 2% top/bottom margin 
+**
+**
+*/
+
+* { 
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Quattrocento', serif;
+ 	color:#333333;
+  background-color: #fff;
+  width: 100%;
+  min-height:100%;
+  height: 100%;
+  overflow-x:hidden;
+  margin: 0;
+}
+.banner {
+  height: 8vh;
+}
+.banner img {
+  position: relative;
+  display:inline-block;
+  top: 10px;
+  height: 56px;
+}
+
+.banner h1 { 
+  display: inline-block;
+  font-family: 'Pacifico', cursive;
+  letter-spacing: 2px;
+  color: #4a4a4b;
+  margin: 0 1% 0;  
+}
+
+.font-style-1 {
+  font-size: 1.5em;
+  line-height: 1.5em;  
+}
+
+.fa {
+  font-size: 1.5em;
+}
+
+.main-wrap {
+  min-height:89vh;
+  margin: 1%;
+  background-color: #CACADC;
+  box-shadow: 2px 2px 4px #000000;
+}
+
+.hero {
+  padding: 1%;
+}
+.hero picture {
+  position: relative;
+  display: block;
+  width: 100%;
+  min-height:70vh;
+  background-color: #000;
+  background-image: url("../images/01-earlydays/trib-001.jpg");
+  background-size: contain;
+  background-position:center;
+  background-repeat: no-repeat;
+  box-shadow: 4px 4px 8px #000000;
+  transition: 0.7s;
+}
+
+.hero .hero--end{ display:none; }
+.hero .hero--paused { display:none; }
+
+.hero .hero--end,
+.hero .hero--paused {
+  background: rgba( 255,255,255, 0.5);
+  position: absolute;
+  bottom:0;
+  right:10px;
+  font-size: 1.5em;
+  color: #4a4a4b;
+}
+
+.tribute {
+  position: relative;
+  margin-top: 1%;  
+  padding-bottom: 1%;
+}
+
+.tribute-line1,
+.tribute-line2,
+.tribute-line3{
+  width: 90%;
+  min-height:1.5em;
+  margin: 0 auto;
+  text-align: center;
+  opacity:0;
+}
+.tribute-control-btn-wrap {
+  position: absolute;
+  top: 0;
+  right: 1.5%;
+}
+.tribute-control-btn--fbwd,
+.tribute-control-btn--bwd,
+.tribute-control-btn--toggle-play,
+.tribute-control-btn--fwd,
+.tribute-control-btn--ffwd {
+  position:relative;
+  display:block;
+  height: 30px;
+  float: right;
+  box-shadow: 2px 2px 2px #000000;
+}
+
+.tribute-overlay {
+  position:absolute;
+  top: -9%;
+  left: 10px;
+  height: 100%;
+  width: 49%;
+  z-index: 2;
+}
+.tribute-overlay:hover {
+  position:absolute;
+  left:10px;
+  width: 98%;
+  height: 100%;
+  background-color: #b8b8c8;
+  transition: background-color .3s;
+  z-index: 2;
+}
+
+.tribute-overlay:hover .tribute-info-icon {
+ opacity:0.5;
+ z-index: 2;
+}
+
+.tribute-overlay:hover .tribute-info-wrap {
+  position: relative;
+  color: #000;
+  margin-top: 1%;
+  text-align: center;
+  opacity: 1;
+  z-index: 2;
+} 
+
+.tribute-overlay:hover .tribute-info-wiki {
+  position: absolute;
+  left: 50%;
+  top: 75%;
+  transform: translate(-50%, -50%);
+  opacity: 1;
+} 
+
+.tribute-info-icon {
+  font-size: 0.833em;
+  position: absolute;
+  top: 6px;
+  left:10px;
+  color:#2e2e32;
+}
+
+.tribute-info-wrap,
+.tribute-info-wiki {
+  opacity:0;
+  margin: auto;
+}
+
+.tribute-info-wrap span {
+  color: #6e6599;
+}
+
+/* 
+** MEDIA QUERIES
+*/ 
+@media only screen and (max-width: 600px) {
+
+.banner {
+  height: 7vh;
+}
+
+.banner img {
+  top: 7px;
+  height: 30px;
+}  
+
+.banner h1 { 
+  font-size: 1.5em;
+}
+
+.main-wrap {
+  min-height:91vh;
+}
+
+.font-style-1 {
+  font-size: 1.25em;
+  line-height: 1.25em;  
+}
+
+.fa {
+  font-size: 1.25em;
+}
+.hero picture {
+  min-height:40vh;
+}
+.tribute {
+  position: relative;
+  margin-top: 14%;  
+  padding-bottom: 1%;
+}
+
+.tribute-line1,
+.tribute-line2,
+.tribute-line3{
+  width: 90%;
+  margin: 0 auto;
+  padding: .5em 0em;
+  text-align: center;
+  opacity:0;
+}
+
+.tribute-control-btn-wrap {
+  position: absolute;
+  top: -6vh;
+  right: 1.5%;
+}
+
+.tribute-overlay {
+  margin-top: 1vh;
+  top: -5%;
+  left: 4px;
+}
+
+.tribute-overlay:hover {
+  position:absolute;
+  height:35vh;
+  left:4px;
+}
+
+.tribute-info-icon {
+  position: absolute;
+  top: -52px;
+  left:2px;
+}
+
+.tribute-info-wrap {
+  padding-top: 6vh;
+}
+
+}/* End media: max-width: 600px  
