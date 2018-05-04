@@ -97,17 +97,14 @@ $(window).on( 'load', function() {
     },
     
     ffwd: function () {
+      slide = 0;
       chapter++;
-      if ( slide > maxSlides ) {
-        chapter++;
         
-        if ( chapter > maxChapters ) {
-          chapter--; // don't go past END of SLIDES
-          slide--;
-        } else {
-          slide = 0;
-        }
-      }
+      if ( chapter > maxChapters ) {
+        chapter--; // don't go past END of SLIDES
+        slide = tribStory[chapter].length -1;
+      } 
+
       this.setBGImage();
     },
     
@@ -201,14 +198,9 @@ $(window).on( 'load', function() {
         
         line = 0;
         
-        if ( slide < maxSlides ) {
+        if ( slide < maxSlides && chapter < maxChapters ) {
           bgImg.fwd();
           animateStory();
-          
-        } else if ( chapter < maxChapters ) {
-          bgImg.ffwd();
-          animateStory();
-          
         } else {
           controls.end();
         }
