@@ -28,15 +28,20 @@ $(window).on( 'load', function() {
   // 3 dimensional [chapter][slide][lines]
   var tribStory = [
     [ // Chapter 1
-      [ "", "The Early Years", "" ],  [ "", "", "" ],  [ "", "", "" ],  [ "", "", "" ],  [ "", "", "" ],
-      [ "", "", "" ],  [ "", "", "" ],  [ "", "", "" ],  [ "", "", "" ],  [ "", "", "" ],
-      [ "", "", "" ],  [ "", "", "" ],  [ "", "", "" ],  [ "", "", "" ],  [ "", "", "" ],
+      [ "", "The Early Years", "" ],
+      [ "Jerry", "grew up in ", "Bowsman, MB" ],
+      [ "", "", "" ],  [ "", "", "" ],  [ "", "", "" ],
+      [ "", "", "" ],  [ "", "", "" ],
+      [ "", "April 1955", "" ],  [ "", "", "" ],  [ "", "", "" ],
+      [ "", "", "" ], 
+      [ "Jerry's letter to Mom, Day, & Family", "while he is away training to be a pilot.",  "" ],
+      [ "", "", "" ],  [ "", "", "" ],  [ "", "", "" ],
       [ "", "", "" ],  [ "", "", "" ],  [ "", "", "" ],  [ "", "", "" ],  [ "", "", "" ]
     ],
     [ // Chapter 2
       [ "Vancouver", "Jerry and Trudy", "Just Married" ],  [ "", "", "" ],  [ "", "", "" ],  [ "", "", "" ],  [ "", "", "" ],
       [ "", "", "" ],  [ "", "", "" ],  [ "", "", "" ],  [ "", "", "" ],  [ "", "", "" ],
-      [ "", "", "" ],  [ "", "", "" ],  [ "", "", "" ]
+      [ "", "", "" ],  [ "", "", "" ],  [ "", "End of Slides", "" ]
     ]
     
   ]; // end array
@@ -45,7 +50,7 @@ $(window).on( 'load', function() {
   var $line2 = $(".tribute-line2");
   var $line3 = $(".tribute-line3");
 
-  var maxChapters = tribStory.length -1;
+  var maxChapters = tribStory.length-1;
   var chapter = 0;
   var maxSlides = tribStory[chapter].length -1;
   var slide = 0;
@@ -54,6 +59,7 @@ $(window).on( 'load', function() {
   var line = 0;
   
   var paused = false;
+  var tribEnd = false; // true at END of tribute slideshow.
   var tl = new TimelineMax({ onComplete: animateStory });
   
   /*
@@ -67,6 +73,7 @@ $(window).on( 'load', function() {
         if ( chapter > 0 ){
           chapter--;
           slide = tribStory[chapter].length -1;
+          maxSlides = slide;
         } else {
           slide = 0;
         }
@@ -78,6 +85,7 @@ $(window).on( 'load', function() {
       chapter--;
       if ( chapter < 0 ) chapter = 0;
       slide = 0;
+      maxSlides = tribStory[chapter].length -1;
       this.setBGImage();
     },
     
@@ -93,23 +101,29 @@ $(window).on( 'load', function() {
           slide = 0;
         }
       }
+      maxSlides = tribStory[chapter].length -1;
       this.setBGImage();
     },
     
     ffwd: function () {
       slide = 0;
       chapter++;
-        
+      
       if ( chapter > maxChapters ) {
-        chapter--; // don't go past END of SLIDES
-        slide = tribStory[chapter].length -1;
-      } 
-
+        chapter--; 
+        maxSlides = tribStory[chapter].length -1;
+        slide = maxSlides;  // LAST SLIDE -- END
+      } else {
+        maxSlides = tribStory[chapter].length -1;
+      }
+ 
       this.setBGImage();
     },
     
     setBGImage: function () {
       $('.hero picture').css( 'background-image', "url(" + base + bgImageArray[chapter][slide] + ")" );
+      $('.tribute-overlay-chapter').text("Chapter:" + (chapter+1) + "/" + (maxChapters+1) );
+      $('.tribute-overlay-slide').text("Slide:" + (slide+1) + "/" + (maxSlides+1) );
     }
   };
   
@@ -131,6 +145,7 @@ $(window).on( 'load', function() {
  
   // fast backward btn
   $('.tribute-control-btn--fbwd').on( "click", function() {
+    tribEnd = false;
     line = 0; 
     bgImg.fbwd();
     controls.play();
@@ -142,6 +157,7 @@ $(window).on( 'load', function() {
   
   // backward btn
   $('.tribute-control-btn--bwd').on( "click", function() {
+    tribEnd = false;
     line = 0; 
     bgImg.bwd();
     controls.play();
@@ -180,6 +196,7 @@ $(window).on( 'load', function() {
       if ( line < maxLines ) {
 
         var totalLetters = 0, mSecs=0.5;
+
         totalLetters += tribStory[chapter][slide][line].length;
         totalLetters += tribStory[chapter][slide][line +1].length;
         totalLetters += tribStory[chapter][slide][line +2].length;
@@ -191,6 +208,9 @@ $(window).on( 'load', function() {
         
         // Note: Timeline invokes animateStory() after completing call to tl.to()
         tl.staggerTo([$line1, $line2, $line3], mSecs, { opacity: 1 }, 0.5);
+        if ( tribEnd === true || slide === maxSlides && chapter == maxChapters ) {
+          controls.end();
+        } 
         tl.to([$line1, $line2, $line3], mSecs * 0.7, { opacity: 0 }, "+=2.0");
         line += 3;
         
@@ -198,11 +218,11 @@ $(window).on( 'load', function() {
         
         line = 0;
         
-        if ( slide < maxSlides && chapter < maxChapters ) {
+        if ( tribEnd === true || slide === maxSlides && chapter == maxChapters ) {
+          controls.end();
+        } else {
           bgImg.fwd();
           animateStory();
-        } else {
-          controls.end();
         }
       } 
       
@@ -226,6 +246,7 @@ $(window).on( 'load', function() {
           $('.hero--end').css('display', "block");
           tl.pause();
           paused = true;
+          tribEnd = true;
         }     
     },   
     
@@ -242,9 +263,7 @@ $(window).on( 'load', function() {
         
         if ( $('.hero--end').css('display') === 'block' ) {
           $('.hero--end').css('display', "none");
-            slide = 0;
             line = 0; 
-            bgImg.fbwd();
         }
         tl.play();
         paused = false;
