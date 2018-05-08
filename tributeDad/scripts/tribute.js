@@ -5,44 +5,85 @@ $(window).on( 'load', function() {
   var bgImageArray = [];
   
   // Images are loaded into array by Chapter, by slide.
-  for ( var i = 0; i < 2; i++ ) {
+  for ( var i = 0; i < 6; i++ ) {
     bgImageArray.push([]);
     
     // Chapter 1
     if ( i === 0 ) {
-      for ( var j = 0; j < 20; j++ ) {
+      for ( var j = 0; j < 15; j++ ) {
         var img = "01-earlydays/trib-" + padzero(j+1,3) + ".jpg"
         bgImageArray[i].push( img );
         new Image().src = base + img; 
       }
     } // Chapter 2
     else if ( i === 1 ) {
-      for ( var j = 0; j < 13; j++ ) {
-        var img = "02-vancouver/trib-1" + padzero(j+1,2) + ".jpg"
+      for ( var j = 0; j < 11; j++ ) {
+        var img = "02-flyboys/trib-1" + padzero(j+1,2) + ".jpg"
         bgImageArray[i].push( img );
         new Image().src = base + img; 
       }
-    } 
+    } // Chapter 3
+    else if ( i === 2 ) {
+      for ( var j = 0; j < 8; j++ ) {
+        var img = "03-thatgirl/trib-2" + padzero(j+1,2) + ".jpg"
+        bgImageArray[i].push( img );
+        new Image().src = base + img; 
+      }
+    } // Chapter 4
+    else if ( i === 3 ) {
+      for ( var j = 0; j < 13; j++ ) {
+        var img = "04-vancouver/trib-3" + padzero(j+1,2) + ".jpg"
+        bgImageArray[i].push( img );
+        new Image().src = base + img; 
+      }
+    } // Chapter 5
+    else if ( i === 4 ) {
+      for ( var j = 0; j < 18; j++ ) {
+        var img = "05-langley/trib-4" + padzero(j+1,2) + ".jpg"
+        bgImageArray[i].push( img );
+        new Image().src = base + img; 
+      }
+    }     
   }
   
   // 3 dimensional [chapter][slide][lines]
   var tribStory = [
-    [ // Chapter 1
-      [ "", "The Early Years", "" ],
-      [ "Jerry", "grew up in ", "Bowsman, MB" ],
+    [ // Chapter 1 Earlydays
+      [ "", "The Early Years", "" ], [ "Jerry", "grew up in ", "Bowsman, MB" ],
       [ "", "", "" ],  [ "", "", "" ],  [ "", "", "" ],
-      [ "", "", "" ],  [ "", "", "" ],
-      [ "", "April 1955", "" ],  [ "", "", "" ],  [ "", "", "" ],
-      [ "", "", "" ], 
-      [ "Jerry's letter to Mom, Day, & Family", "while he is away training to be a pilot.",  "" ],
-      [ "", "", "" ],  [ "", "", "" ],  [ "", "", "" ],
-      [ "", "", "" ],  [ "", "", "" ],  [ "", "", "" ],  [ "", "", "" ],  [ "", "", "" ]
+      [ "", "", "" ],  [ "", "", "" ], [ "", "April 1955", "" ],  [ "", "", "" ],  [ "", "", "" ],
+      [ "", "", "" ], [ "", "", "" ],  [ "", "", "" ],  [ "", "", "" ],  [ "", "", "" ]
     ],
-    [ // Chapter 2
-      [ "Vancouver", "Jerry and Trudy", "Just Married" ],  [ "", "", "" ],  [ "", "", "" ],  [ "", "", "" ],  [ "", "", "" ],
-      [ "", "", "" ],  [ "", "", "" ],  [ "", "", "" ],  [ "", "", "" ],  [ "", "", "" ],
-      [ "", "", "" ],  [ "", "", "" ],  [ "", "End of Slides", "" ]
-    ]
+    [ // Chapter 2 Flyboys
+      [ "", "Flyboys", "" ],  [ "", "", "" ],[ "", "", "" ],  [ "", "", "" ],  [ "", "", "" ],
+      [ "", "", "" ], [ "", "", "" ],  [ "", "", "" ],  [ "", "", "" ],
+      [ "Jerry's letter to Mom, Day, & Family", "he is away training",  "in the Royal Canadian Air Force" ],
+      [ "", "", "" ]
+    ],    
+    [ // Chapter 3 That Girl
+      [ "Not sure, but this might ", "have been taken", "when Jerry's back was broken" ],
+      [ "Jerry recovered", "walked again", "and met That Girl." ], [ "", "", "" ], 
+      [ "Trudy met Jerry", "at his Dad's", "Pharmacy in Winnipeg" ], 
+      [ "She modeled", "from time", "to time." ],
+      [ "", "", "" ], [ "", "", "" ],  [ "Found this", "on its own.", "Love it." ]
+    ],
+    [ // Chapter 4 Vancouver
+      [ "Vancouver", "Jerry and Trudy", "Just Married" ], [ "", "", "" ],
+      [ "Jerry, Trudy, Kris, Dale.", "lived 1 block away", "E. 21st Nootka & E. 21st Renfrew" ],
+      [ "", "", "" ],  [ "Allyson born Mar 9, 1968", "17 months old", "" ],
+      [ "Allyson & Kerry", "", "" ],  [ "Tom Baxter on right", "a good friend in late 60s", "moved to Australia" ],  [ "", "", "" ],  [ "Jerry on his B.S.A", "", "Allyson & Uncle Jay" ], 
+      [ "Jerry & John Preston", "Bridesmaid & Groom", "at Jerry and Trudy's wedding."],
+      [ "", "", "" ],  [ "boating", "fishing", "Bonnie looks great." ], [ "", "", "" ]
+    ],
+    [ // Chapter 5 Langley
+      [ "Living in Langley", "kids getting bigger", "" ], [ "Jerry, cat, Allyson", "relaxing.", "" ],
+      [ "Jerry's friend ", "Harold Taylor", "charted boats at Bayshore" ],
+      [ "", "", "" ], [ "", "", "" ], [ "", "", "" ],  [ "", "", "" ], [ "", "", "" ],
+      [ "", "", "" ], [ "", "", "" ], [ "Rhonda (left)", "Dad helped her get her 1st job", "working at Preston Chev Olds" ], 
+      [ "", "", "" ], [ "", "", "" ], [ "", "", "" ],[ "", "", "" ], [ "", "", "" ],
+      [ "Winner, winner", "Chicken dinner", "" ], [ "At Trudy's bowling banquet", "", "Its ok to laugh at this one... I did." ]
+
+    ]    
     
   ]; // end array
   
@@ -208,9 +249,9 @@ $(window).on( 'load', function() {
         
         // Note: Timeline invokes animateStory() after completing call to tl.to()
         tl.staggerTo([$line1, $line2, $line3], mSecs, { opacity: 1 }, 0.5);
-        if ( tribEnd === true || slide === maxSlides && chapter == maxChapters ) {
-          controls.end();
-        } 
+        //if ( tribEnd === true || slide === maxSlides && chapter == maxChapters ) {
+        //  controls.end();
+        //} 
         tl.to([$line1, $line2, $line3], mSecs * 0.7, { opacity: 0 }, "+=2.0");
         line += 3;
         
