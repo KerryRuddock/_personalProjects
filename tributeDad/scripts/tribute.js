@@ -5,7 +5,7 @@ $(window).on( 'load', function() {
   var bgImageArray = [];
   
   // Images are loaded into array by Chapter, by slide.
-  for ( var i = 0; i < 6; i++ ) {
+  for ( var i = 0; i < 8; i++ ) {
     bgImageArray.push([]);
     
     // Chapter 1
@@ -43,7 +43,28 @@ $(window).on( 'load', function() {
         bgImageArray[i].push( img );
         new Image().src = base + img; 
       }
-    }     
+    } // Chapter 6
+    else if ( i === 5 ) {
+      for ( var j = 0; j < 39; j++ ) {
+        var img = "06-clover/trib-5" + padzero(j+1,2) + ".jpg"
+        bgImageArray[i].push( img );
+        new Image().src = base + img; 
+      }
+    } // Chapter 7
+    else if ( i === 6 ) {
+      for ( var j = 0; j < 15; j++ ) {
+        var img = "07-murray/trib-6" + padzero(j+1,2) + ".jpg"
+        bgImageArray[i].push( img );
+        new Image().src = base + img; 
+      }
+    } // Chapter 8
+    else if ( i === 7 ) {
+      for ( var j = 0; j < 3; j++ ) {
+        var img = "08-finale/trib-7" + padzero(j+1,2) + ".jpg"
+        bgImageArray[i].push( img );
+        new Image().src = base + img; 
+      }
+    }        
   }
   
   // 3 dimensional [chapter][slide][lines]
@@ -80,10 +101,46 @@ $(window).on( 'load', function() {
       [ "Jerry's friend ", "Harold Taylor", "charted boats at Bayshore" ],
       [ "", "", "" ], [ "", "", "" ], [ "", "", "" ],  [ "", "", "" ], [ "", "", "" ],
       [ "", "", "" ], [ "", "", "" ], [ "Rhonda (left)", "Dad helped her get her 1st job", "working at Preston Chev Olds" ], 
-      [ "", "", "" ], [ "", "", "" ], [ "", "", "" ],[ "", "", "" ], [ "", "", "" ],
+      [ "", "", "" ], [ "", "", "" ], [ "Jerry's younger brother", "", "" ],[ "", "", "" ], [ "", "", "" ],
       [ "Winner, winner", "Chicken dinner", "" ], [ "At Trudy's bowling banquet", "", "Its ok to laugh at this one... I did." ]
-
-    ]    
+    ],
+    [ // Chapter 6 Clover
+      [ "Living in Cloverdale", "an occasional visit", "to Birch Bay, WA" ], 
+      [ "In 1986,", "his daughter graduated grade 12", "his son graduated a 2 year college program" ],
+      [ "Expo came to Vancouver", "and Jerry's original idea", "EXPO 86 license plate" ],
+      [ "an idea that was fully supported", "", "" ], [ "", "", "" ],
+      [ "These next slides", "are of friends", "and family" ],
+      [ "If I may", "I'll say a poem", "as you watch the years go by" ],
+      [ "", "...", "" ], [ "", "Friends and family", "" ], // 9
+      [ "love you no matter", "what you do.", "" ], [ "", "Friends and family", "" ], 
+      [ "Always help", "each other through", "" ],[ "", "Having wonderful people", "" ], 
+      [ "", "to help you along,", "" ], [ "They encourage", "and inspire you", "" ],
+      [ "", "to stay strong.", "" ], [ "", "...", "" ], //17
+      [ "", "Friends and Family", "" ], [ "are the trees", "of strength,", "" ],
+      [ "When you need", "their help", "" ], [ "they'll go", "to any length.", "" ], 
+      [ "", "They never judge you", "" ],[ "just give you", "lots of love,", "" ], 
+      [ "", "What wonderful blessings", "" ],[ "they are from", "God above.", "" ], //25    
+      [ "", "Friends and family", "" ], [ "", "keep in touch,", "" ], 
+      [ "", "You can lean on them,", "" ], [ "", "they'll be your crutch", "" ],
+      [ "", "They email or call", "" ],[ "", "day by day", "" ], 
+      [ "", "and for each other", "" ],  [ "", "they always pray.", "" ], 
+      [ "", "...", "" ], [ "", "(by James Greene)", "" ], // 35
+      [ "", "", "" ],[ "", "", "" ], [ "", "", "" ]
+    ],
+    [ // Chapter 7 Murrayville
+      [ "Trudy passed in June 30, 1999", "Jerry moved to Murrayville shortly after", "" ],
+      [ "Family and friends", "from all over", "dropped in to say hello", "" ],[ "", "", "" ], 
+      [ "sometimes coming by", "just to listen in on a good story", "" ],[ "", "", "" ], 
+      [ "a story from 40 years past", "every detail remembered", "you couldn't help but listen" ],[ "", "", "" ],
+      [ "and Jerry loved baseball", "he pitched in AAA", "coached boys and girls teams many years."], //8
+      [ "", "", "" ], [ "", "", "" ], 
+      [ "", "", "" ],[ "", "", "" ],[ "", "", "" ], [ "", "", "" ], [ "", "", "" ] 
+    ],
+    [ // Chapter 8 Finale
+      [ "", "We will meet again", "" ],
+      [ "", "over the horizon.", "" ], 
+      [ "", "", "" ]
+    ]     
     
   ]; // end array
   
