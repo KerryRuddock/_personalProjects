@@ -70,7 +70,7 @@ $(window).on( 'load', function() {
   // 3 dimensional [chapter][slide][lines]
   var tribStory = [
     [ // Chapter 1 Earlydays
-      [ "", "The Early Years", "" ], [ "Jerry", "grew up in ", "Bowsman, MB" ],
+      [ "", "The Early Years", "" ], [ "Jerry", "grew up in ", "Bowsman, Manitoba" ],
       [ "", "", "" ],  [ "", "", "" ],  [ "", "", "" ],
       [ "", "", "" ],  [ "", "", "" ], [ "", "April 1955", "" ],  [ "", "", "" ],  [ "", "", "" ],
       [ "", "", "" ], [ "", "", "" ],  [ "", "", "" ],  [ "", "", "" ],  [ "", "", "" ]
@@ -78,14 +78,14 @@ $(window).on( 'load', function() {
     [ // Chapter 2 Flyboys
       [ "", "Flyboys", "" ],  [ "", "", "" ],[ "", "", "" ],  [ "", "", "" ],  [ "", "", "" ],
       [ "", "", "" ], [ "", "", "" ],  [ "", "", "" ],  [ "", "", "" ],
-      [ "Jerry's letter to Mom, Day, & Family", "he is away training",  "in the Royal Canadian Air Force" ],
+      [ "Jerry's letter to Mom, Dad, & Family", "he is away training",  "in the Royal Canadian Air Force" ],
       [ "", "", "" ]
     ],    
     [ // Chapter 3 That Girl
       [ "Not sure, but this might ", "have been taken", "when Jerry's back was broken" ],
       [ "Jerry recovered", "walked again", "and met That Girl." ], [ "", "", "" ], 
       [ "Trudy met Jerry", "at his Dad's", "Pharmacy in Winnipeg" ], 
-      [ "She modeled", "from time", "to time." ],
+      [ "She modeled a little", "from time", "to time." ],
       [ "", "", "" ], [ "", "", "" ],  [ "Found this", "on its own.", "Love it." ]
     ],
     [ // Chapter 4 Vancouver
@@ -93,15 +93,15 @@ $(window).on( 'load', function() {
       [ "Jerry, Trudy, Kris, Dale.", "lived 1 block away", "E. 21st Nootka & E. 21st Renfrew" ],
       [ "", "", "" ],  [ "Allyson born Mar 9, 1968", "17 months old", "" ],
       [ "Allyson & Kerry", "", "" ],  [ "Tom Baxter on right", "a good friend in late 60s", "moved to Australia" ],  [ "", "", "" ],  [ "Jerry on his B.S.A", "", "Allyson & Uncle Jay" ], 
-      [ "Jerry & John Preston", "Bridesmaid & Groom", "at Jerry and Trudy's wedding."],
+      [ "Jerry & John Preston", "Bridesmaid & Best Man", "at Jerry and Trudy's wedding."],
       [ "", "", "" ],  [ "boating", "fishing", "Bonnie looks great." ], [ "", "", "" ]
     ],
     [ // Chapter 5 Langley
       [ "Living in Langley", "kids getting bigger", "" ], [ "Jerry, cat, Allyson", "relaxing.", "" ],
-      [ "Jerry's friend ", "Harold Taylor", "charted boats at Bayshore" ],
+      [ "Jerry's friend ", "Harold Taylor", "charted boats at Bayshore Inn, Vancouver" ],
       [ "", "", "" ], [ "", "", "" ], [ "", "", "" ],  [ "", "", "" ], [ "", "", "" ],
       [ "", "", "" ], [ "", "", "" ], [ "Rhonda (left)", "Dad helped her get her 1st job", "working at Preston Chev Olds" ], 
-      [ "", "", "" ], [ "", "", "" ], [ "Jerry's younger brother", "", "" ],[ "", "", "" ], [ "", "", "" ],
+      [ "", "", "" ], [ "", "", "" ], [ "Jerry's younger brother", "Carey", "" ],[ "", "", "" ], [ "", "", "" ],
       [ "Winner, winner", "Chicken dinner", "" ], [ "At Trudy's bowling banquet", "", "Its ok to laugh at this one... I did." ]
     ],
     [ // Chapter 6 Clover
@@ -124,22 +124,24 @@ $(window).on( 'load', function() {
       [ "", "You can lean on them,", "" ], [ "", "they'll be your crutch", "" ],
       [ "", "They email or call", "" ],[ "", "day by day", "" ], 
       [ "", "and for each other", "" ],  [ "", "they always pray.", "" ], 
-      [ "", "...", "" ], [ "", "(by James Greene)", "" ], // 35
+      [ "", "(by James Greene)", "" ], [ "", "", "" ], // 35
       [ "", "", "" ],[ "", "", "" ], [ "", "", "" ]
     ],
     [ // Chapter 7 Murrayville
       [ "Trudy passed in June 30, 1999", "Jerry moved to Murrayville shortly after", "" ],
-      [ "Family and friends", "from all over", "dropped in to say hello", "" ],[ "", "", "" ], 
-      [ "sometimes coming by", "just to listen in on a good story", "" ],[ "", "", "" ], 
-      [ "a story from 40 years past", "every detail remembered", "you couldn't help but listen" ],[ "", "", "" ],
-      [ "and Jerry loved baseball", "he pitched in AAA", "coached boys and girls teams many years."], //8
-      [ "", "", "" ], [ "", "", "" ], 
-      [ "", "", "" ],[ "", "", "" ],[ "", "", "" ], [ "", "", "" ], [ "", "", "" ] 
+      [ "Family and friends", "from all over", "dropped in to say hello", "" ],[ "", "", "" ], [ "", "", "" ],
+      [ "sometimes coming by", "just to listen in on a good story", "" ], [ "", "", "" ],
+      [ "Jerry was a great storyteller", "every detail remembered", "you couldn't help but listen" ],
+      [ "He would recall stories from his RCAF days", "coke bottle machines that held beer", "" ],
+      [ "or how he pitched in AAA baseball", "Jerry loved the game and coached", "boys and girls teams over the years."], //9
+      [ "He loved to travel with Trudy", "always adding a charm to her bracelet", "of places they went to" ],
+      [ "He once had a 57 Chevy Belair", "but not even a single photo", "to show he had once owned one" ], 
+      [ "", "many stories", "" ],[ "", "many friends", "" ], [ "", "many memories", "" ], [ "", "not the end", "" ] 
     ],
     [ // Chapter 8 Finale
       [ "", "We will meet again", "" ],
       [ "", "over the horizon.", "" ], 
-      [ "", "", "" ]
+      [ "", "'Jerry'", "" ]
     ]     
     
   ]; // end array
